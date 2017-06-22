@@ -1,0 +1,46 @@
+<div class="container">
+  <table class="table table-striped table-bordered">
+    <thread>
+      <tr>
+        <th>Pre-Selected</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Why Stay</th>
+        <th>For How Long</th>
+        <th>Intro</th>
+        <th>Social Links</th>
+        <th>Actions</th>
+      </tr>
+    </thread>
+    <tr ng-repeat="person in vm.persons">
+      <td>
+        <input ng-model="person.selected" ng-change="vm.toggleSelected(person)" type="checkbox">
+      </td>
+      <td>
+        <div><strong>{{person.name}} from {{person.place}} is a {{person.gender}}</strong></div>
+        <div>{{person.email}}</div>
+      </td>
+      <td>
+        <div>{{person.ageRange}}</div>
+      </td>
+      <td>
+        <div>{{person.reason}}</div>
+      </td>
+      <td>
+        <div>{{person.length}}</div>
+      </td>
+      <td>
+        <div>{{person.intro}}</div>
+      </td>
+      <td>
+        <div>{{person.socialLinks}}</div>
+      </td>
+
+      <td>
+        <!-- TODO: Button that sends a text message to this party -->
+        <!--button ng-click="vm.sendTextMessage(party)" class="btn btn-success">Send SMS</button-->
+        <button ng-click="vm.removePerson(person)" class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+  </table>
+</div>

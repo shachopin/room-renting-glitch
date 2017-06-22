@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Welcome to Bay Area Premium House!</title>
+    
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    
+    <!--special google font -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Sofia" />
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"--> 
+    <!-- For example, in your style.css you can refer to the font type as Montserrat -->  
+    <!--link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css"-->
+    
+    <!-- Custom styles for this template go here -->
+    <link rel="stylesheet" href="/style.css">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!--for google analytics tracking-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-100770014-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+    
+    <!-- for the social media sharing sidebar -->
+    <script type="text/javascript">var switchTo5x=true;</script>
+    <script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
+    <script type="text/javascript" src="https://ss.sharethis.com/loader.js"></script>
+    
+    <!-- for opengraph social media sharing content, without it, the social icons will still show, just don't know what to share -->
+    <meta property="og:title" content="Bay Area Premium House" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://room-renting.glitch.me/house" />
+    <meta property="og:image" content="https://photos.zillowstatic.com/p_f/IS-18felkt3w77fh.jpg" />
+    <meta property="og:description" content="Welcome to Bay Area Premium House">
+    <meta property="og:site_name" content="BayAreaPremiumHouse" />
+  </head>
+  <!--MISC attention: for inline element, width and top and down padding (and margin) not applied -->
+  <body data-spy="scroll" data-target=".navbar" ng-app="app"> <!--this is needed for scrollspy from bootstrap-->   
+    <dd-navbar></dd-navbar>
+    <div ng-view></div>
+    <div style="display:none" > <!--How to set background music? Initially using display:none, it will be hidden, but music is still playing(if you set ?autoplay=1 in iframe URL). cool; -->
+      <!--this way stopped working. Should use visibilty:hidden and resize that square like setting this to the above div, style="visibility:hidden;height:0" -->
+      <!-- style="display:none" works again now, good -->
+      
+      <!--iframe in a responsive way-->
+      <!-- 16:9 aspect ratio -->
+      <!--div class="embed-responsive embed-responsive-16by9">
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7maJOI3QMu0?autoplay=1"></iframe>
+      </div-->
+      <!-- notice append "?autoplay=1" in the src attribute will autoplay, works for chrome verified, so cool -->
+
+      <!-- 4:3 aspect ratio -->
+      <div class="embed-responsive embed-responsive-4by3">
+        <!--iframe class="embed-responsive-item" src="https://www.youtube.com/embed/7maJOI3QMu0?autoplay=1"></iframe-->
+        <!-- notice append "?autoplay=1" in the src attribute will autoplay, works for chrome verified, so cool -->
+        <!--iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VslLZcV9ZcU?autoplay=1"></iframe-->
+        <!--another good playlist by yiruma -->
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ss7EJ-PW2Uk?autoplay=1"></iframe>
+      </div>
+      <!--iframe in a non-responsive way, too big the size, doesn't shrink-->
+      <!--iframe width="560" height="315" src="https://www.youtube.com/embed/7maJOI3QMu0" frameborder="0" allowfullscreen></iframe--> 
+    </div>
+    <footer>
+      <div class="footer-wrapper container-fluid">
+        <span id="copyright">&copy; Bay Area Premium House 2017</span>
+        <div class="social">
+          <div id="twitter"><a href="https://twitter.com/DaweiDai" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow @DaweiDai</a></div>
+          <div id="facebook" class="fb-share-button" data-href="http://dawei.bitballon.com" data-layout="button" data-size="small" data-mobile-iframe="false"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fdawei.bitballon.com%2F&amp;src=sdkpreparse">Share</a></div>  
+        </div>
+      </div>
+    </footer>
+    <!-- ============================= -->
+    <!-- All your JavaScript comes now -->
+    <!-- ============================= -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Bootstrap core JS, only after jquery, because dependent on jquery -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    
+    <!--for social media sharing in footer -->
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
+    <!-- for the social media sharing sidebar -->
+    <script type="text/javascript">stLight.options({publisher: "25bbf511-2ca8-46fa-99d2-2b2099b2db77", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
+    <script>
+    var options={ "publisher": "25bbf511-2ca8-46fa-99d2-2b2099b2db77", "position": "left", "ad": { "visible": false, "openDelay": 5, "closeDelay": 0}, "chicklets": { "items": ["facebook", "googleplus", "twitter", "linkedin", "pinterest"]}};
+    var st_hover_widget = new sharethis.widgets.hoverbuttons(options);
+    </script>
+    
+    <!--angular and firebase stuff -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.5.0/angular-route.js"></script>
+    <!--firebase related libraries -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.0.1/angularfire.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyCR3c91BkXn_ZENzkbNUQMdGeyUYkgixBM",
+        authDomain: "gomix-room-renting.firebaseapp.com",
+        databaseURL: "https://gomix-room-renting.firebaseio.com",
+        projectId: "gomix-room-renting",
+        storageBucket: "gomix-room-renting.appspot.com",
+        messagingSenderId: "47553036031"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <!--main app module-->
+    <script src="/angularapp/app.module.js"></script>
+    <!--applicant module-->
+    <script src="/angularapp/applicant/application.module.js"></script>
+    <script src="/angularapp/applicant/application.controller.js"></script>
+    <script src="/angularapp/applicant/config.route.js"></script>
+    <!--personlist module-->
+    <script src="/angularapp/personlist/personlist.module.js"></script>
+    <script src="/angularapp/personlist/personlist.controller.js"></script>
+    <script src="/angularapp/personlist/config.route.js"></script>
+    <!--landing module-->
+    <script src="/angularapp/landing/landing.module.js"></script>
+    <script src="/angularapp/landing/config.route.js"></script>
+    <script src="/angularapp/landing/landing.controller.js"></script>
+    <script src="/angularapp/landing/landing.service.js"></script>
+    <!--layout module-->
+    <script src="/angularapp/layout/layout.module.js"></script>
+    <script src="/angularapp/layout/navbar.directive.js"></script>
+    <!--photoshowroom module-->
+    <script src="/angularapp/photoshowroom/photoshowroom.module.js"></script>
+    <script src="/angularapp/photoshowroom/config.route.js"></script>
+    <script src="/angularapp/photoshowroom/photoshowroom.controller.js"></script>
+    <!--for jquery masonry https://masonry.desandro.com -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    <script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
+    <!--for adding rooms.js, this is for the masonry page in the show room section. The carousel pictures still comes from landing.service.js-->
+    <script src="js/rooms.js"></script>
+    
+    
+  </body>
+</html>

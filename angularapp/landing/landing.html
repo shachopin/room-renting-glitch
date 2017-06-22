@@ -1,0 +1,246 @@
+<!--carousel with 3 images, using pixlr to crop the size to exact same 1920x1080 or directly google search image with 1920x1080 -->
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators, hidden for now, not visible anyways -->
+  <!--ol class="carousel-indicators">
+    <li data-target="#carousel" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel" data-slide-to="1"></li>
+  </ol-->
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+      <a href="/showroom">
+        <img src="https://lauzonflooring.com/wp-content/uploads/2016/02/lauzon-flooring-hardwood-blog-art-nature-trends-2016---pic-music.jpg" alt="carousel image 1">
+        <div class="carousel-caption">
+          <h1>Welcome to My Home</h1>
+          <h3>Make Yourself at Home</h3>
+        </div>
+      </a>
+    </div>
+    
+    <div class="item">
+      <a href="/showroom">     
+        <div class="col-md-3" ng-repeat="photo in vm.photos">
+          <div class="thumbnail"> 
+            <img ng-src="{{photo}}" class="img-responsive"> 
+            <!--div class="caption text-center">what merge sort does</div--> 
+          </div> 
+        </div>    
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+<!--headings container -->
+<div class="container-fluid" id="heading"> <!--temporarily hide it using display:none, also bypassed HTML nested comments issue-->
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <h2>Convenient Location</h2>
+      <p>Test the bootrap tooltip, hover Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a--><!--in order to test button hover text-->
+      </p>
+    </div><!-- /col -->
+    <div class="col-md-4">
+      <h2>Safe Community</h2>
+      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+      <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a-->
+      </p>
+   </div><!-- /col -->
+    <div class="col-md-4">
+      <h2>Comfortable Living</h2>
+      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a-->
+      </p>
+    </div><!-- /col -->
+  </div><!-- /row -->
+  <hr>
+</div> <!-- /container -->
+
+
+<!-- map container -->
+<!--Google Embedded Map - Option #1 to use Google Map-->
+<!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.026019765428!2d-122.30782597452196!3d37.543890260169974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f9efe9f61e7fb%3A0xda3b05c7b54c5c69!2sEdison+St+%26+26th+Pl%2C+San+Mateo%2C+CA+94403!5e0!3m2!1sen!2sus!4v1497107549626" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe-->
+<div class="container-fluid anchor" id="location">
+  <a href="#portfolioModal1" data-toggle="modal"><div id="map" style="height:500px" class="anchor"></div></a>
+</div>
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+          <div class="lr">
+              <div class="rl">
+              </div>
+          </div>
+      </div>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col-lg-12">
+                  <div class="modal-body">  <!--https://stackoverflow.com/questions/20687602/google-maps-embed-remove-place-card-->  <!--this is to not show the address on your embedded map -->
+                      <div style="width: 100%; overflow: hidden; position: relative; top: -10px">
+                        <iframe 
+                           src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12653.881323806983!2d-122.3016505!3d37.5439813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f9efe9f61e7fb%3A0xda3b05c7b54c5c69!2sEdison+St+%26+26th+Pl%2C+San+Mateo%2C+CA+94403!5e0!3m2!1sen!2sus!4v1497389862651"
+                           width="100%"
+                           height="850"
+                           frameborder="0"
+                           style="border:0; margin-top: -150px;">
+                        </iframe>
+                      </div>
+                      <button type="button" class="btn btn-success" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<!--Google JavaScript API - Iotuib #2 to use Google Map-->
+<!-- Go to https://console.developers.google.com/apis/credentials to find api key, can add new key and delete unwanted key here
+which is not confidential. 
+Leave the field under "Accept requests from these HTTP referrers (web sites)" empty for now. 
+Once you know which domain you will use the Maps API on, 
+you can add it here to make sure nobody else can use your API key on their own websites and send request. 
+This would be very important once your website has more users!-->  
+<script>
+//The last step under "Map Options" is the most interesting step. Because now we are actually going to write the JavaScript that accesses the API library and puts life into your map. Let's take a look at the example at the top of the page again. If you compare your code to the example you should notice that only one part is missing:
+//Since we want the code to run before we load the Maps API you need to paste the code somewhere outside the $(document).ready function. Make sure that the script.js file is linked above the JavaScript link we added in step 4
+var map;
+function initMap() {
+  var myLatLng = {lat: 37.5427449, lng: -122.3074127};
+  var map = new google.maps.Map(document.getElementById('map'), { //can only call google api once
+    zoom: 14, //  Add the zoom level for your location. In JavaScript APIv3, the lowest zoom level is 1 (see the whole world) and the closest zoom level is 21. We chose a zoom level of 8 to show Berlin.
+    center: myLatLng
+  });
+  map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+  var marker1 = new google.maps.Marker({  //https://developers.google.com/maps/documentation/javascript/markers - how to use marker
+    position: myLatLng,
+    map: map,
+    label: "Home"
+  });
+  var marker2 = new google.maps.Marker({
+    position: {lat: 37.5385654, lng: -122.2991412},
+    map: map,
+    label: "Caltrain"
+  }); 
+  var marker3 = new google.maps.Marker({
+    position: {lat: 37.5307212, lng: -122.299499},
+    map: map,
+    label: "Shopping Mall"
+  }); 
+
+}
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYDU_BO6zF0oDmzr_LNWX-_QBhE-0CumU&callback=initMap"
+async defer></script> <!-- if put before the above initMap script block, also works -->
+
+
+
+<!-- contact container -->
+<div class="container-fluid anchor" id="contact">
+  <div class="row" id="contact-row">
+    <div class="col-md-6">
+      <div class="signup">
+        <!-- using MailChimp to signup email list -->
+        <form action="//herokuapp.us11.list-manage.com/subscribe/post?u=a01e77b89a4b5aaa96ba887c5&amp;id=6a698684fc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+          <h3>Join Mailing List</h3>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email1" name="EMAIL" class="form-control" type="email" placeholder="Enter your email" title="email">
+          </div>
+          <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a01e77b89a4b5aaa96ba887c5_6a698684fc" tabindex="-1" value=""></div>
+          <button id="signUpButton" class="btn btn-default">Sign Up</button> <!--inside a form, button type is default submit, no need to specify. Outside form, button type is by default button --> 
+        </form>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="contact">
+        <h3>Contact</h3>
+        <p>SMS only: 415-857-3926</p>             
+      </div>
+      <div class="form">
+        <form method="post" action="//formspree.io/shachopin@gmail.com"><!--name attribute need to be set to all inputs for formspree to work and any form to work --><!--title attribute is for hover text-->
+          <!--Change action here from http:// to use // because formspree reuqures https when run in https server, and http when run in http server--> <!-- everytime change a host, formspree asks you to confirm email -->
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input id="name" class="form-control" type="text" placeholder="Enter your name" title="name" name="name">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email2" class="form-control" type="email" placeholder="Enter your email" title="email" name="email" required>
+            <!-- you need to add required to make the emiail format validation to work -->
+          </div>
+          <label for="message">Message</label>
+          <textarea id="message" class="form-control message-box" style="resize:none" cols="40" rows="5" placeholder="Enter your message" title="message" name="message"></textarea>
+          <div id="visible-comment"></div>
+          <div id="char-count"></div>
+          <button id="contact-form-button" class="btn btn-default">Send</button> <!--inside a form, button type is by default submit, no need to specify. Outside form, button type is by default button -->
+        </form>
+      </div>
+    </div>     
+  </div>  
+</div><!-- /container -->
+
+<!-- faq container -->
+<div class="container-fluid anchor" id="faq">
+  <div class="row">
+    <h2 class="learn-more">More About The Place And Me</h2>        
+    <div class="modal-button">
+      <!-- Small modal button -->
+      <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Download Form</button>
+    </div>
+    <!-- Small modal, actually the following div can be placed anywhere as long as you have class="fade bs-example-modal-sm" which is the modal button's data-target value-->
+    <!--div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anders
+        </div>
+      </div>
+    </div--> 
+    <!-- big modal, actually the following div can be placed anywhere as long as you have class="fade bs-example-modal-sm" which is the modal button's data-target value-->
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-backdrop="static"  data-keyboard="false"> <!-- data-backdrop="static"  data-keyboard="false" needed for disabling the ability for a user to click outside of the modal window to close the modal. Now they have to click an Exit button to close the modal window -->
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content"> <!--/* typical usecase to make two buttons one at the far left side and one at far right side */-->
+          <div class="modal-header" style="padding-bottom:30px">
+              <h4 class="modal-title" id="myModalLabel" style="float:left">Lease Application Form</h4>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+          <div class="modal-body">
+            <!--Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.-->
+            <embed id="modalembed" src="https://trello-attachments.s3.amazonaws.com/55dd4e321741675056ec4f57/5849c1946e62629887b9f6a3/bc07805110c7ba225c269d6a3505e644/Lease_Applicationt.pdf#scrollbar=0" ><!--make the change to your word resume and use online converter to convert to pdf version and then upload to trello -->
+            <!-- src="https://trello-attachments.s3.amazonaws.com/562ed0bda4ba03db4fe267f7/57f44ec7f83f829c8dd2474c/c477d7e399b60d2b0b2a5af89fa0329f/Dawei_Dai_resume_vv1.pdf" this will render pdf toolbar. Appending "#toolbar=0&navpanes=0&scrollbar=0" will remove the pdf toolbar, then there is no way to download -->
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
+  <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+    <div class="panel panel-default">
+      <div class="panel-heading" role="tab" id="headingOne">
+        <h4 class="panel-title">
+          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <span class="glyphicon glyphicon-plus"></span> What do you do?
+          </a>
+        </h4>
+      </div>
+      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body">
+          I am a software engineer working in a local big corp.
+        </div>
+      </div>
+    </div>
+  </div><!-- /panel-group id accordion -->
+</div><!-- /container -->

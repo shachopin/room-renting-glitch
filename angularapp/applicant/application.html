@@ -1,0 +1,163 @@
+<div class="container">
+  <form ng-submit="applicationForm.$valid && vm.addApplicant(applicationForm)" name="applicationForm" novalidate>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="row">
+          <fieldset class="form-group col-md-2">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" value="Male" ng-model-options="{ updateOn: 'blur', debounce: {blur: 5000} }" ng-model="vm.applicant.gender" required>
+                Mr.
+                <!--without specifying the name property, can select both radio buttons -->
+              </label>
+            </div>                                                                        
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="gender" value="Female" ng-model-options="{ updateOn: 'blur', debounce: {blur: 5000} }" ng-model="vm.applicant.gender" required>
+                Ms.
+              </label>
+            </div>
+            <!--for pure html, set one input radio in the same group to required can validate, 
+            but for angular error message to show, need to set both -->
+            <!--Gender error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.gender.$error.required" class="text-danger">Field Required</p>
+            </div> 
+          </fieldset>
+          <div class="form-group col-md-4">
+            <label for="name">Name</label>
+            <input ng-model="vm.applicant.name" name="name" ng-model-options="{ updateOn: 'blur', debounce: {blur: 1000} }" type="text" class="form-control" id="name" placeholder="Your name" required>
+            <!--Name error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.name.$error.required" class="text-danger">Field Required</p>
+            </div>   
+          </div>
+          <div class="form-group col-md-6">
+            <label for="place">Originally From</label>
+            <input ng-model="vm.applicant.place" name="place" ng-model-options="{ updateOn: 'blur', debounce: {blur: 1000} }" type="text" class="form-control" id="place" placeholder="Where are you originally from?" required>
+            <!--Place error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.place.$error.required" class="text-danger">Field Required</p>
+            </div> 
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="email">Email Address</label>
+            <input type="email" name="email" ng-model="vm.applicant.email" ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
+            <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small>
+            <!--Email error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.email.$error.required" class="text-danger">Field Required</p>
+              <p ng-show="applicationForm.email.$error.email" class="text-danger">Please enter a valid email.</p>
+            </div>  
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="ageRange">Select Your Age Range</label>
+            <select ng-model="vm.applicant.ageRange" name="ageRange" ng-model-options="{ updateOn: 'default', debounce: {default: 0} }"  class="form-control" id="ageRange" required>
+              <option value="">Please select your age range</option>
+              <option>18 - 25</option>
+              <option>26 - 30</option>
+              <option>31 - 35</option>
+              <option>36 - 40</option>
+              <option>41 - 50</option>
+              <option>51 - 60</option>
+              <option>60+</option>
+            </select>
+            <!--Age range error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.ageRange.$error.required" class="text-danger">Field Required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="length">Approximate Length of Your Stay</label>
+            <select ng-model="vm.applicant.length" name="length" ng-model-options="{ updateOn: 'default', debounce: {default: 0} }" class="form-control" id="length" required>
+              <option value="">Please select your approximate length of stay</option>
+              <option>1 - 3 months</option>
+              <option>3 - 6 months</option>
+              <option>6 - 9 months</option>
+              <option>9 - 12 months</option>
+              <option>1 - 2 years</option>
+              <option>2+ years</option>
+            </select>
+            <!--Length error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.length.$error.required" class="text-danger">Field Required</p>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="form-group col-xs-12">
+            <label for="reasonForStay">Reason for Stay</label>
+            <textarea ng-model="vm.applicant.reason" name="reason" class="form-control" id="reasonForStay" rows="5" placeholder="What's your purpose of staying?" required></textarea>
+            <!--Reason error-->
+            <div ng-show="applicationForm.$submitted">
+              <p ng-show="applicationForm.reason.$error.required" class="text-danger">Field Required</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <!-- live review area -->  
+        <!--how to insert html safe code: http://stackoverflow.com/questions/9381926/angularjs-insert-html-into-view -->
+        <p id="liveReview" ng-class="{noteBookBackground: vm.applicant}">  <!--here using ng-class and aim at vm.applicant, so that when any field is updated with value, will show the background paper image -->
+          {{vm.applicant.name ? 'Welcome! ' + vm.applicant.name + '!': null}} 
+          <br>
+          {{vm.applicant.place ? vm.applicant.place + ' is a beautiful place!' : null}}
+          <br>
+          {{vm.applicant.ageRange ? 'Cool, we are about the same age.' : null}}
+          <br>
+          {{vm.applicant.length ? 'I understand you will stay for about ' + vm.applicant.length + "." : null}}
+          <br>
+          {{vm.applicant.intro ? "Thank you for your info. Your concerns are well noted!" : null}}
+          <br>
+          {{vm.applicant.socialLinks ? "Let's keep in touch on social media first and I will get back to you soon!" : null}}
+        </p>
+      </div>
+    </div> 
+
+
+    <div class="row">
+      <div class="form-group col-xs-12">
+        <label for="intro">Introduction or Concerns</label>
+        <textarea ng-model="vm.applicant.intro" ng-model-options="{ updateOn: 'blur', debounce: {blur: 1000} }"  class="form-control" id="intro" rows="3" placeholder="Can you briefly introduce yourself (hobbies or any special concerns)? Anything I should know about you"></textarea>
+      </div> <!--not a required field-->
+    </div>
+    <div class="row">
+      <div class="form-group col-xs-12">
+        <label for="social">Social Links</label>
+        <textarea ng-model="vm.applicant.socialLinks" name="socialLinks" ng-model-options="{ updateOn: 'default', debounce: {default: 1000} }" class="form-control" id="social" rows="3" placeholder="Include at least one social link (Facebook, Wechat ID, Linkedin or Instagram). Preferabbly it has a photo" required></textarea>
+        <!--Length error-->
+        <div ng-show="applicationForm.$submitted">
+          <p ng-show="applicationForm.socialLinks.$error.required" class="text-danger">Field Required</p>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+<!-- to debug
+1. {{applicationForm.$valid}}
+
+2. {{applicationForm.email.$error.required}}
+
+3. {{applicationForm.name.$error.required}}
+-->
+
+<!-- lesson learned
+1. ng-model-options="{ updateOn: 'default blur', debounce: { default: 1000, blur: 0 } }"
+blur - tab out - vm immediatley take effect
+default - key down - vm 10000 ms to take effect
+
+2. how to use ng-class
+
+3. vm.applicant will be not null as long as you vm.applicant.<anything> become not null, even after you remove the vm.applicant.<anything> value later on
+
+4. for field validation to work, name the form, name the field, and MAKE SURE YOU SET ng-model on that field
+
+5. After the form submission, the $submit will be always true, until you set the form to form.$setPristine(); in controller (passing form name)
+-->

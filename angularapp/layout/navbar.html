@@ -1,0 +1,32 @@
+<!-- Collect the nav links, forms, and other content for toggling -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse"
+      data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <!--the above is not trivial, it's the 3 stripes for the hamburger menu in the top right corner -->
+      </button>
+      <div class="projectName navbar-brand">
+        <a href="/">
+          Bay Area Premium House &nbsp;&nbsp;<span class="fa fa-home"></span>
+        </a>
+      </div> <!--end projectName -->
+    </div> <!--end navbar-header -->
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right">
+        <li ng-hide="vm.isShowHouse()"><a href="/">House</a></li>
+        <!--li><a href="#profile">Profile</a></li-->
+        <li ng-show="vm.isShowHouse()"><a href="#location">Location</a></li>
+        <!--li ng-show="vm.isShowHouse()"><a href="#about">About</a></li-->
+        <li ng-show="vm.isShowHouse()"><a href="#contact">Contact</a></li>
+        <li ng-show="vm.isShowHouse()"><a href="#faq">FAQ</a></li>
+        <li><a href="/showroom">Gallery</a></li>
+        <li><a href="/application">Apply</a></li>
+      </ul>
+    </div> <!-- nav -->
+  </div> <!-- end nav container-->
+</nav> <!-- end navbar-->
