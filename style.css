@@ -1,0 +1,290 @@
+/* for apply form page start */
+div.container {
+  margin-top:90px;
+}
+
+/* specical font */
+p#liveReview {
+	font: 400 2.0em/125% 'Sofia', Helvetica, Sans-serif;
+	color: #333;
+  /* source is http://makeitcg.com/script-handwritten-google-fonts/1910/ */
+}  
+
+.noteBookBackground {
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/4c/45/34/4c4534434caf503b0a8eaffd481e6e50.jpg");
+  background-size: 114% 102%;
+  background-position: -43px, -23px;
+  padding-top: 90px;
+  padding-left: 42px;
+  padding-right:10px
+}
+/* for apply form page end */
+
+/* for main landing page start */
+body {
+  background-color: #fffeea;
+  color: #34495e;
+  /* no need for padding-top: 90px; because bootstrap automatically leaves space for top navbar */
+  margin-top:51px; /* however need this for better, because still some pic got covered */
+} 
+
+/*logo or brand name*/
+.projectName a{
+  text-transform: uppercase;
+  color: white;
+  transition:  color 1s;
+  text-decoration: none;
+}
+.projectName a:hover {
+  color: yellow;
+}
+/*
+if you have got the above implementation working, you'll notice that clicking on the anchors will scroll down too far and the fixed navigation will cover up the section headings.
+*/
+.anchor{ 
+  padding-top: 40px;
+}
+
+.header h1 {
+  text-align: center;
+}
+
+
+/*for contact container */
+
+/*
+Find another background image by going to Unsplash or a stock image website of your choice,
+https://unsplash.com/
+*/
+#contact{
+    background-attachment: fixed;
+    background-image: url("https://my-profile.glitch.me/img/contact2-2.jpg");
+    background-size: cover;
+/*Have the background cover the entire div section*/
+    color: white;
+/*Change the color of the text on top so it is readable, and adjust the padding as needed.*/
+    padding:100px;
+    padding-top: 50px;
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-top: 10px;
+}
+/*
+Other than our "textarea" field, our input fields are pretty small. To make them longer, inside your input tag, add the class form-control. This is another Bootstrap class that makes the width of your text field 100%. If you want to modify the width of form-control so that it is a different size, you can overwrite the default Bootstrap class settings in your CSS file.
+*/
+#contact .form-control {
+  width:80%;
+}
+
+#contact button {
+  margin-top: 10px;
+}
+
+#contact #signUpButton {
+  margin-top: -4px;
+}
+
+/*for faq container */
+/* glyphicon is just text, can set hover color
+.glyphicon:hover {
+ color: orangered;
+}
+
+.glyphicon {
+ transition:  color 2s;
+}
+*/
+#faq .panel-heading { /* has to be specific enough to beat the bootstrap css rule */
+  background-color: orangered;
+}
+#faq a {
+  text-decoration: none;
+}
+/* typical usecase to make two buttons one at the far left side and one at far right side */
+.learn-more {
+  text-align: left;
+  float: left;
+}
+.modal-button {
+  float: right;
+  padding: 15px;
+}
+/*
+we weren't quite happy with the margins of our row, so we played with it in Chrome's Developer Tools until we arrived at a value we liked. You can do this as well.
+*/
+#faq .row {
+  margin-right: -11px;
+  margin-left: 1px;
+}
+
+#modalembed {
+    height: 600px;
+    width: 100%;
+    padding: 10px;
+}
+
+
+/*for footer container */
+
+/* Sticky footer styles start */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 50px;
+  background-color:aqua;
+  color: brown;
+}
+/* Sticky footer styles ends */
+footer #copyright {
+  margin-top: 17px;
+  display: inline-block;  /*without it, span is considered as inline elemeent, top bottom size no change */
+}
+footer .social {
+  /*margin-right: 68px; because I wrap a container wrapper, so no need to set left-right maargin */
+  margin-top: 17px;
+  float: right; /* this is to make sure the whole social group(consisting two butons) are to the right inside the footbar*/
+}
+footer #facebook, footer #twitter {
+  float:right;/* this is to make sure these two buttons are next to each other, using display:inline-block no use */
+  padding-left:10px;
+}
+
+
+/* for map modal */
+.portfolio-modal .modal-content {
+    padding: 100px 0;
+    min-height: 100%;
+    border: 0;
+    border-radius: 0;
+    text-align: center;
+    background-clip: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.portfolio-modal .modal-content h2 {
+    margin-bottom: 15px;
+    font-size: 3em;
+}
+
+.portfolio-modal .modal-content p {
+    margin-bottom: 30px;
+}
+
+.portfolio-modal .modal-content p.item-intro {
+    margin: 20px 0 30px;
+    font-family: "Droid Serif","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    font-style: italic;
+}
+
+.portfolio-modal .modal-content ul.list-inline {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.portfolio-modal .modal-content img {
+    margin-bottom: 30px;
+}
+
+.portfolio-modal .close-modal {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    width: 75px;
+    height: 75px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.portfolio-modal .close-modal:hover {
+    opacity: .3;
+}
+
+.portfolio-modal .close-modal .lr {
+    z-index: 1051;
+    width: 1px;
+    height: 75px;
+    margin-left: 35px;
+    background-color: #222;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.portfolio-modal .close-modal .lr .rl {
+    z-index: 1052;
+    width: 1px;
+    height: 75px;
+    background-color: #222;
+    -webkit-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.portfolio-modal .modal-backdrop {
+    display: none;
+    opacity: 0;
+}
+.portfolio-modal .list-group-item {
+    border: none;
+    padding:0;
+    padding-bottom: 10px;
+}
+/* for main landing page end */
+
+
+/*for masonry page start */
+/* clear fix */
+.grid:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+/* ---- .grid-item use fluid layout---- */
+
+.grid-sizer,
+.grid-item {
+  width: 33.333%;
+}
+
+.grid-item {
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  max-width: 100%;
+}
+/*for masonry page end */
+
+/*custom styling for my masonry page*/
+.grid .work-img {
+  position: relative; /* is needed for .info position: absolute to work */
+}
+
+.grid .info { /* it's a span tag, so inline elemnt, inline element can work with positioning */
+  position: absolute; /* let's us move the text around and not worry about the image, parent is image and has been set to relative position */
+  top: 15%; /* position the text 15% away from the top */
+  left: 22%;
+  color:#fff;
+  font-family:Futura;
+  text-transform:uppercase;
+  font-weight:700;
+  letter-spacing:0.5em;
+  line-height:1.6;
+  display: none; /* initially no show, only show when mouse hover over */
+
+}
+/* custom styling for my masonry page */
