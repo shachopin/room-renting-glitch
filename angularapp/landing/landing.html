@@ -105,7 +105,7 @@
       </div>
   </div>
 </div>
-<!--Google JavaScript API - Iotuib #2 to use Google Map-->
+<!--Google JavaScript API - Option #2 to use Google Map-->
 <!-- Go to https://console.developers.google.com/apis/credentials to find api key, can add new key and delete unwanted key here
 which is not confidential. 
 Leave the field under "Accept requests from these HTTP referrers (web sites)" empty for now. 
@@ -122,7 +122,7 @@ function initMap() {
     zoom: 14, //  Add the zoom level for your location. In JavaScript APIv3, the lowest zoom level is 1 (see the whole world) and the closest zoom level is 21. We chose a zoom level of 8 to show Berlin.
     center: myLatLng
   });
-  map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});
+  map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});//this is to not allow any operation on the map, it affects scrolling. We shoudn't do anything yet
   var marker1 = new google.maps.Marker({  //https://developers.google.com/maps/documentation/javascript/markers - how to use marker
     position: myLatLng,
     map: map,
@@ -143,7 +143,20 @@ function initMap() {
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYDU_BO6zF0oDmzr_LNWX-_QBhE-0CumU&callback=initMap"
 async defer></script> <!-- if put before the above initMap script block, also works -->
-
+<!--
+Using the same key, you can call google geolocation api
+https://developers.google.com/maps/documentation/javascript/examples/map-geolocation
+snipit:
+navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            },
+            failure function, and option object)
+             ....
+the browser will ask your permission for sending your gelocation data
+-->
 
 
 <!-- contact container -->
