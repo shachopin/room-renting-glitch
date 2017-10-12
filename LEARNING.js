@@ -1,3 +1,4 @@
+https://scotch.io/tutorials/pretty-urls-in-angularjs-removing-the-hashtag for angular remove the /#/, two steps
 1. angular.module('scotchy', [])
     .config(function($routeProvider, $locationProvider) {
         $routeProvider

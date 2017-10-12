@@ -16,31 +16,27 @@
           <h3>Make Yourself at Home</h3>
         </div>
       </a>
-    </div>
-    
-    <div class="item">
+    </div> 
+    <!--div class="item">
       <a href="/showroom">     
         <div class="col-md-3" ng-repeat="photo in vm.photos">
           <div class="thumbnail"> 
-            <img ng-src="{{photo}}" class="img-responsive"> 
-            <!--div class="caption text-center">what merge sort does</div--> 
+            <img ng-src="{{photo.pic}}" class="img-responsive"> 
+            <div class="caption text-center">what merge sort does</div> 
           </div> 
         </div>    
       </a>
-    </div>
-    
-    
+    </div-->   
   </div>
-
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
+  <!--a class="left carousel-control" href="#carousel" role="button" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="right carousel-control" href="#carousel" role="button" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
-  </a>
+  </a-->
 </div>
 
 
@@ -48,22 +44,10 @@
 <div class="container-fluid" id="heading"> <!--temporarily hide it using display:none, also bypassed HTML nested comments issue-->
   <!-- Example row of columns -->
   <div class="row">
-    <div class="col-md-4">
-      <h2>Convenient Location</h2>
-      <p>Test the bootrap tooltip, hover Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+    <div class="col-md-4" ng-repeat="heading in vm.headings">
+      <h2>{{heading.title}}</h2>
+      <p>{{heading.body}}</p>
       <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a--><!--in order to test button hover text-->
-      </p>
-    </div><!-- /col -->
-    <div class="col-md-4">
-      <h2>Safe Community</h2>
-      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-      <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a-->
-      </p>
-   </div><!-- /col -->
-    <div class="col-md-4">
-      <h2>Comfortable Living</h2>
-      <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-      <p><!--a class="btn btn-default" href="#" role="button">View details &raquo;</a-->
       </p>
     </div><!-- /col -->
   </div><!-- /row -->
@@ -75,7 +59,7 @@
 <!--Google Embedded Map - Option #1 to use Google Map-->
 <!--iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.026019765428!2d-122.30782597452196!3d37.543890260169974!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f9efe9f61e7fb%3A0xda3b05c7b54c5c69!2sEdison+St+%26+26th+Pl%2C+San+Mateo%2C+CA+94403!5e0!3m2!1sen!2sus!4v1497107549626" width="100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe-->
 <div class="container-fluid anchor" id="location">
-  <a href="#portfolioModal1" data-toggle="modal"><div id="map" style="height:500px" class="anchor"></div></a>
+  <a href="#portfolioModal1" data-toggle="modal"><div id="map" style="height:700px" class="anchor"></div></a>
 </div>
 <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-content">
@@ -120,28 +104,24 @@ function initMap() {
   var myLatLng = {lat: 37.5427449, lng: -122.3074127};
   var map = new google.maps.Map(document.getElementById('map'), { //can only call google api once
     zoom: 14, //  Add the zoom level for your location. In JavaScript APIv3, the lowest zoom level is 1 (see the whole world) and the closest zoom level is 21. We chose a zoom level of 8 to show Berlin.
-    center: myLatLng
+    center: myLatLng,
+    mapTypeControl: false //to disallow choosing between map/terrain
   });
   map.setOptions({draggable: false, zoomControl: false, scrollwheel: false, disableDoubleClickZoom: true});//this is to not allow any operation on the map, it affects scrolling. We shoudn't do anything yet
-  var marker1 = new google.maps.Marker({  //https://developers.google.com/maps/documentation/javascript/markers - how to use marker
-    position: myLatLng,
-    map: map,
-    label: "Home"
-  });
-  var marker2 = new google.maps.Marker({
-    position: {lat: 37.5385654, lng: -122.2991412},
-    map: map,
-    label: "Caltrain"
+  
+  var locationRef = firebase.database().ref('locations');
+  locationRef.once('value',function(snap) {
+    snap.forEach(function(item) {
+      new google.maps.Marker({ //https://developers.google.com/maps/documentation/javascript/markers - how to use marker
+        position: {lat: item.val().lat, lng: item.val().lng},
+        map: map,
+        label:item.val().label
+      });
+    });
   }); 
-  var marker3 = new google.maps.Marker({
-    position: {lat: 37.5307212, lng: -122.299499},
-    map: map,
-    label: "Shopping Mall"
-  }); 
-
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYDU_BO6zF0oDmzr_LNWX-_QBhE-0CumU&callback=initMap"
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTU05e_lkk19HBUiEs2irx0ZjliQ-3x9w&callback=initMap"
 async defer></script> <!-- if put before the above initMap script block, also works -->
 <!--
 Using the same key, you can call google geolocation api
@@ -168,8 +148,8 @@ the browser will ask your permission for sending your gelocation data
         <form action="//herokuapp.us11.list-manage.com/subscribe/post?u=a01e77b89a4b5aaa96ba887c5&amp;id=6a698684fc" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
           <h3>Join Mailing List</h3>
           <div class="form-group">
-            <label for="email">Email</label>
-            <input id="email1" name="EMAIL" class="form-control" type="email" placeholder="Enter your email" title="email">
+            <label for="email1">Email</label>
+            <input id="email1" name="Email" class="form-control" type="email" placeholder="Enter your email" title="email">
           </div>
           <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
 <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_a01e77b89a4b5aaa96ba887c5_6a698684fc" tabindex="-1" value=""></div>
@@ -190,14 +170,14 @@ the browser will ask your permission for sending your gelocation data
             <input id="name" class="form-control" type="text" placeholder="Enter your name" title="name" name="name">
           </div>
           <div class="form-group">
-            <label for="email">Email</label>
+            <label for="email2">Email</label>
             <input id="email2" class="form-control" type="email" placeholder="Enter your email" title="email" name="email" required>
             <!-- you need to add required to make the emiail format validation to work -->
           </div>
           <label for="message">Message</label>
           <textarea id="message" class="form-control message-box" style="resize:none" cols="40" rows="5" placeholder="Enter your message" title="message" name="message"></textarea>
           <div id="visible-comment"></div>
-          <div id="char-count"></div>
+          <!--div id="char-count"></div-->
           <button id="contact-form-button" class="btn btn-default">Send</button> <!--inside a form, button type is by default submit, no need to specify. Outside form, button type is by default button -->
         </form>
       </div>

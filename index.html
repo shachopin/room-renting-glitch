@@ -75,7 +75,9 @@
         <!-- notice append "?autoplay=1" in the src attribute will autoplay, works for chrome verified, so cool -->
         <!--iframe class="embed-responsive-item" src="https://www.youtube.com/embed/VslLZcV9ZcU?autoplay=1"></iframe-->
         <!--another good playlist by yiruma -->
-        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ss7EJ-PW2Uk?autoplay=1"></iframe>
+        <!--iframe class="embed-responsive-item" src="https://www.youtube.com/embed/ss7EJ-PW2Uk?autoplay=1"></iframe-->
+        <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/PFw83-39KWU?autoplay=1"></iframe>
+        
       </div>
       <!--iframe in a non-responsive way, too big the size, doesn't shrink-->
       <!--iframe width="560" height="315" src="https://www.youtube.com/embed/7maJOI3QMu0" frameborder="0" allowfullscreen></iframe--> 
@@ -146,7 +148,6 @@
     <script src="/angularapp/landing/landing.module.js"></script>
     <script src="/angularapp/landing/config.route.js"></script>
     <script src="/angularapp/landing/landing.controller.js"></script>
-    <script src="/angularapp/landing/landing.service.js"></script>
     <!--layout module-->
     <script src="/angularapp/layout/layout.module.js"></script>
     <script src="/angularapp/layout/navbar.directive.js"></script>
@@ -158,8 +159,7 @@
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
     <script src="https://imagesloaded.desandro.com/imagesloaded.pkgd.js"></script>
     <!--for adding rooms.js, this is for the masonry page in the show room section. The carousel pictures still comes from landing.service.js-->
-    <script src="js/rooms.js"></script>
-    
-    
+    <!-- no longer needed, rooms.js deleted, because pulling data from firebase -->
+    <!--script src="js/rooms.js"></script-->
   </body>
 </html>
