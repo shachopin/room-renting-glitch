@@ -61,7 +61,7 @@ https://unsplash.com/
     background-image: url("https://my-profile.glitch.me/img/contact2-2.jpg");
     background-size: cover;
 /*Have the background cover the entire div section*/
-    color: white;
+    /*color: white;*/
 /*Change the color of the text on top so it is readable, and adjust the padding as needed.*/
     padding:100px;
     padding-top: 50px;

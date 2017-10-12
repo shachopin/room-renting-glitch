@@ -5,9 +5,10 @@
     .module('app.landing')
     .controller('LandingController', LandingController);
   
-  function LandingController(LandingService) { 
+  function LandingController($firebaseArray) { 
     var vm = this;
-    vm.photos = LandingService.photos;
+    //vm.photos = $firebaseArray(firebase.database().ref('rooms'));
+    vm.headings = $firebaseArray(firebase.database().ref('headings'));
     
     //$(".message-box").css("border", "2px solid red");
     $("#contact-form-button").on("click", function () {
@@ -17,7 +18,7 @@
         //$('#visible-comment').html(comment); //here same effect
         //$('.message-box').hide();
         $(".message-box").css("border", "2px solid red");
-        $('#visible-comment').text("Why is there no message?");
+        $('#visible-comment').text("A message is needed");
         return false; //not submit the form -- essentially this button is not able to submit form any more until you type something in message box, essentially it breaks the button action, hence preventiong from the later form submission
         //return or return true will make the button still continue to submit the form
       }
