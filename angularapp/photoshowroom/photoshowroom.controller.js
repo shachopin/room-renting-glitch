@@ -82,8 +82,9 @@
       <div class='grid-sizer''></div>\
     ")
     var ref = firebase.database().ref('rooms');
-    ref.once('value',function(snap) {
-      snap.forEach(function(item) {
+    ref.once('value',function(snap) { //this is async call
+      snap.forEach(function(item) //this is sync call
+       {
          $(".grid").append("\
            <div class='work-img grid-item'>\
             <img src='" + item.val().pic + "'/>\
@@ -91,12 +92,11 @@
              " + item.val().description + "\
             </span>\
            </div>\
-         ");        
-      }
-    ); 
-      
+         ");
+       }
+      ); 
       //solution is put the jquery part of code in here:
-      //if you put outside, since .once('value) is a async, will not work because DOM is not finished loading
+      //if you put outside, since .once('value') is a async, will not work because DOM is not finished loading
       $(".work-img").mouseenter( function() {
         $(".info", this).show();
       }).mouseleave(function(){
@@ -112,10 +112,8 @@
       });
       
     });
-    
-    //console.log(rooms.length); //beccause snap.forEach is async call, here will show 0
    
-   //below doesn't work put there because the above firebase data retrieval call is async, 
+   //below doesn't work put there because the above firebase data retrieval call (.once('value')) is async, 
    //when I try to run these jquery statements, the above HTML DOM are NOT generated yet.
   
     
@@ -154,7 +152,7 @@
 //     //this approach needs data structure to be name: pic: description:
 //     //the $grid.masonry({
 //     //    itemSelector: '.grid-item',
-//     //doesn't work property, causng te layout to look weird. Because angular code will finish loading HTML AFTER jquery is executed
+//     //doesn't work property, causng te layout to look weird. Because angular when jquery is doing sth, angular code hasn't finished producing the whole HTML
 //     //And I don't know how to make the above jquery run only after angular finishes loading
 //     vm.rooms = $firebaseArray(firebase.database().ref('rooms'));  
     
