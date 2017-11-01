@@ -37,8 +37,5 @@
         $("#char-count").css("color", "black");
       }
     });    
-    
-    vm.questions = $firebaseArray(firebase.database().ref('questions'));
-    
   }
  })();
