@@ -38,5 +38,7 @@
       }
     });    
     
+    vm.questions = $firebaseArray(firebase.database().ref('questions'));
+    
   }
  })();
