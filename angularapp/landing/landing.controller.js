@@ -9,6 +9,7 @@
     var vm = this;
     //vm.photos = $firebaseArray(firebase.database().ref('rooms'));
     vm.headings = $firebaseArray(firebase.database().ref('headings'));
+    vm.questions = $firebaseArray(firebase.database().ref('questions'));
     
     //$(".message-box").css("border", "2px solid red");
     $("#contact-form-button").on("click", function () {

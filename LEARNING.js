@@ -114,5 +114,8 @@ angular.module('App', [])
 
 9 jquery Masonry and hover text picture (can be your template for photo showing)
 
+10 https://stackoverflow.com/questions/38045352/how-to-get-the-key-of-a-firebasearray-object 
+   To get the id simply call the $id on the item.
+
 
 
