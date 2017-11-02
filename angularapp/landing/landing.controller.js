@@ -37,6 +37,5 @@
         $("#char-count").css("color", "black");
       }
     });    
-    
   }
  })();
