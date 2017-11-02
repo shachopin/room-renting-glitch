@@ -221,59 +221,17 @@ the browser will ask your permission for sending your gelocation data
     </div>  
   </div>
   <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingOne">
+    <div class="panel panel-default" ng-repeat="q in vm.questions">
+      <div class="panel-heading" role="tab" id="{{q.$id  + 1}}">
         <h4 class="panel-title">
-          <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-            <span class="glyphicon glyphicon-plus"></span> Where do you do for living?
+          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="{{'#' + q.$id  + 2}}" aria-expanded="false" aria-controls="{{q.$id  + 2}}">
+            <span class="glyphicon glyphicon-plus"></span> {{q.title}}
           </a>
         </h4>
       </div>
-      <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+      <div id="{{q.$id  + 2}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{q.$id  + 1}}"> <!--https://stackoverflow.com/questions/38045352/how-to-get-the-key-of-a-firebasearray-object To get the id simply call the $id on the item.-->
         <div class="panel-body">
-          I'm a software engineer at a company nearby
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingTwo">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <span class="glyphicon glyphicon-plus"></span> What's your schedule like?
-          </a>
-        </h4>
-      </div>
-      <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-        <div class="panel-body">
-          Nomrally I wake up at 6am, work from 9-5 and go to bed at 10pm.
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingThree">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            <span class="glyphicon glyphicon-plus"></span> Do you allow over-night guest stay?
-          </a>
-        </h4>
-      </div>
-      <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-        <div class="panel-body">
-          No.
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading" role="tab" id="headingFour">
-        <h4 class="panel-title">
-          <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-            <span class="glyphicon glyphicon-plus"></span> What's the bathroom situation?
-          </a>
-        </h4>
-      </div>
-      <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-        <div class="panel-body">
-          It's shared.
+          {{q.body}}
         </div>
       </div>
     </div>
